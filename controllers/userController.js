@@ -8,6 +8,7 @@ const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
+    res.status(400);
     throw new Error("Please enter both the fields");
   }
 
@@ -17,6 +18,7 @@ const login = asyncHandler(async (req, res) => {
       .status(200)
       .json({ msg: "successfully logged-in", token: generateToken(user._id) });
   }
+  res.status(401);
   throw new Error("Invalid credentials");
 });
 
@@ -25,10 +27,12 @@ const createUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
+    res.status(400);
     throw new Error("Enter all fields");
   }
 
   if (await User.findOne({ email })) {
+    res.status(400);
     throw new Error("Email already exists");
   }
 
@@ -48,14 +52,14 @@ const createUser = asyncHandler(async (req, res) => {
 const updateUserInfo = asyncHandler(async (req, res) => {
   const { id } = req.user;
   await User.findByIdAndUpdate(id, req.body);
-  res.status(200).json({ msg: "user updated", user: await User.findById(id) });
+  res.status(201).json({ msg: "user updated", user: await User.findById(id) });
 });
 
 //DELETE
 const deleteUser = asyncHandler(async (req, res) => {
   const { id } = req.user;
   await User.findByIdAndDelete(id);
-  res.status(200).json({ msg: "user deleted" });
+  res.status(201).json({ msg: "user deleted" });
 });
 
 const hashedPassword = asyncHandler(async (password) => {
