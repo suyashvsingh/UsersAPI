@@ -21,5 +21,5 @@
 ## Deleting
 
 - DELETE request to _https://svs-usersapi.herokuapp.com/users_
-- Headers should have _authorization_ key and value should be **_Bearer - JWT_**, where JWT will be the JSON web token of the user
+- Headers should have _authorization_ key and value should be **_Bearer JWT_**, where JWT will be the JSON web token of the user
 - The user will be deleted
