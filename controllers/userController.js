@@ -44,7 +44,6 @@ const createUser = asyncHandler(async (req, res) => {
   const userID = user._id;
   res.status(201).json({
     msg: "posted successfully",
-    token: generateToken(userID),
   });
 });
 
