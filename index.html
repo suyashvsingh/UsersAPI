@@ -4,9 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyApi</title>
+    <title>UsersApi</title>
   </head>
   <body>
-    <h2>Visit /users to do API calls</h2>
+    <h2>Getting Started</h2>
+    <h3>Create a new user</h3>
+    <ul>
+      <li>POST request to /api</li>
+      <li>
+        Body should contain <em>name, email</em> and <em>password</em> keys
+      </li>
+      <li>New user will be created successfully</li>
+    </ul>
+
+    <h3>Login</h3>
+    <ul>
+      <li>GET request to /api</li>
+      <li>Body should contain <em>email</em> and <em>password</em> keys</li>
+      <li>User will receive his/her JSON web token</li>
+    </ul>
+
+    <h3>Updating information</h3>
+    <ul>
+      <li>PUT request to /api</li>
+      <li>
+        Body should contain updated info, with one or more fields, and Headers
+        should have <em>authorization</em> field and value should be
+        <em>Bearer JWT</em>, where JWT will be the JSON web token of the user
+      </li>
+      <li>User will receive the updated information</li>
+    </ul>
+
+    <h3>Deleting</h3>
+    <ul>
+      <li>DELETE request to /api</li>
+      <li>
+        Headers should have <em>authorization</em> field and value should be
+        <em>Bearer JWT</em>, where JWT will be the JSON web token of the user
+      </li>
+      <li>The user will be deleted</li>
+    </ul>
   </body>
 </html>
