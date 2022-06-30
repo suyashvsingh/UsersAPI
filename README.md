@@ -15,7 +15,7 @@
 ## Updating information
 
 - PUT request to _https://svs-usersapi.herokuapp.com/users_
-- Body should contain updated info, with one or more fields, and - Headers should have _authorization_ key and value should be **_Bearer - JWT_**, where JWT will be the JSON web token of the user
+- Body should contain updated info, with one or more fields, and - Headers should have _authorization_ key and value should be **_Bearer JWT_**, where JWT will be the JSON web token of the user
 - User will receive the updated information
 
 ## Deleting
